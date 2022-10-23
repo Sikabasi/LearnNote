@@ -144,6 +144,12 @@
 			 
 
 ```
+
+## 啟動顯示畫面
+### Android的起始畫面設定
+在Platforms/Android/Resources/values/colors.xml  設定顏色
+
+在Platforms/Android/Resources/MainActivity.cs處理要啟動的圖片
 ## Android Emulator 
 
 如果報錯 :Another emulatro is still running
