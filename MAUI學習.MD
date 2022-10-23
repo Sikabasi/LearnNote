@@ -45,3 +45,39 @@
 			 
 
 ```
+## Android Emulator 
+
+如果報錯 :Another emulatro is still running
+
+關閉背景執行的程式
+
+CMD-> taskkill /F /IM "qemu-system-x86_64.exe" /T
+
+## 功能
+
+### 儲存資料
+
+在MAUI裡還是一樣可以像原本的C#一樣使用 File 類別來進行存讀檔
+
+這裡是直接用Newtonsoft.json 來序列化資料(下載Newtonsoft.Json.Bson 的NuGet就可以了)
+
+
+簡易的小程式:
+```
+  var jsonString = JsonConvert.SerializeObject(temp);
+        File.WriteAllText(fileName, jsonString);//read
+```
+
+然後讀檔:
+
+```
+ var data = File.ReadAllText(fileName);
+```
+
+我的fileName 是使用
+
+```
+ string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "temp.txt");
+```
+
+Environment.SpecialFolder列舉所提供的資料夾位址在官網上的說明:<https://learn.microsoft.com/zh-tw/dotnet/api/system.environment.specialfolder?view=net-6.0>
