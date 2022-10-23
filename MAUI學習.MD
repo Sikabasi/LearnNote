@@ -53,6 +53,20 @@
 
 CMD-> taskkill /F /IM "qemu-system-x86_64.exe" /T
 
+
+## 發布APK 
+
+在方案總管視窗，對方案按右鍵/在終端機中開啟，使用以下命令
+```
+dotnet publish -f:net6.0-android -c:Release
+```
+
+他就會在 專案目錄/bin/Debug/net6.0-android下產生
+
+或是在 專案目錄/bin/Release/net6.0-android下產生
+
+全看你當下的方案組態
+
 ## 功能
 
 ### 儲存資料
