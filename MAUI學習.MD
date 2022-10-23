@@ -5,8 +5,107 @@
 + 可以輸出Blazor => .Net Core 3.x 的網頁框架
 	+ IE 11+ 只支援 Blazor Server 不支援Blazor WebAssembly
 
-## XAML元件
+## 使用者介面
 
+### 筆刷
+官網參考資料:<https://learn.microsoft.com/zh-tw/dotnet/maui/user-interface/brushes/>
+可以自己繪製區域，再用於各種地方，如控制項的背景
+
+例:繪出漸層區域當作Resource，再替換掉按鈕的Background
+，就可以得到有漸層圖案的按鈕了
+
+### UI 元件 (控制項)
+官網參考資料:<https://learn.microsoft.com/zh-tw/dotnet/maui/user-interface/controls/>
+
+#### 頁面
++ ContentPage
+
+單一顯示頁面
++ FlyoutPage
+
+管理兩個相關資訊頁面的頁面
++ NavigationPage
+
+視需要瀏覽頁面、向前/後瀏覽
++ TabbedPage
+
+由頁面頂端或底端的索引標籤巡覽
+
+#### 版面配置
++ AbsoluteLayout
+
+將子專案放在相對於父代的特定位置
++ BindableLayout
++ FlexLayout
++ Grid
++ HorizontalStackLayout
++ StackLayout
++ VerticalStackLayout
+
+#### 檢視
+##### 資料呈現
+###### Border
+可在另一個控制項周圍繪製框限
+
+```
+<Border>
+</Border>
+```
+##### 命令類型元件
+
+###### RefreshView
+提供可捲動內容的重新整理功能
+###### SearchBar 
+搜尋列
+###### SwipeView
+撥動手勢顯示內容功能表項目
+##### 設定值
+
+###### CheckBox
+
+```<CheckBox/>```
+###### DatePicker
+開啟該平台的日期選擇器，可選取日期
+
+```<DatePicker />```
+
+###### Slider 
+滑桿元件
+###### Stepper
+顯示 **-|+** 選項的元件
+
+```<Stepper/>```
+
+###### Switch
+切換按鈕
+
+```<Switch/>```
+###### TimePicker
+開啟該平台的時間選擇器，可選取時間
+
+```<TimePicker />```
+
+##### 編輯文字
+###### Editor
+輸入及編輯多行文字
+
+```<Editor/>```
+###### Entry
+輸入及編輯單行文字，也可當密碼欄
+
+```<Entry/>```
+
+##### 顯示活動
+###### ActivityIndicator
+顯示像是應用程式 像是Loading之類的需要等待的活動，並且可會撥放動畫
+
+**不會顯示進度**
+
+```<ActivityIndicator IsRunning="true" />```
+
+#### ContentView
+自訂的控制項，並且可重複使用，可跳至**動態新增元件**
+觀看如何新增
 
 ## 動態新增元件
 
