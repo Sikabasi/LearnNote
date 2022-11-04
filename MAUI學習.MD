@@ -5,7 +5,14 @@
 + 可以輸出Blazor => .Net Core 3.x 的網頁框架
 	+ IE 11+ 只支援 Blazor Server 不支援Blazor WebAssembly
 
-## 使用者介面
+## 目錄
++ [使用者介面](#使用者介面)
++ [動態新增元件](#動態新增元件)
+
+
+
+
+## 使用者介面 <div id='使用者介面'/>
 
 ### 筆刷
 官網參考資料:<https://learn.microsoft.com/zh-tw/dotnet/maui/user-interface/brushes/>
