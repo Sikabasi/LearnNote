@@ -52,7 +52,29 @@
 </Border>
 ```
 ##### 命令類型元件
+###### Button
+最常用的按鈕
 
+常搭配 Clicked ="函式名稱" 來控制按鈕按下後的動作
+
+然後需要再這個xmal.cs的類別中添加相對應名稱的函式
+```
+private void OnButtonOnClicked(object sender,EventArgs args)
+{
+　//要執行的程式....
+}
+```
+可以透過sender來獲得這顆按鈕
+```
+private void OnButtonOnClicked(object sender,EventArgs args)
+{
+　var btn = (Button)sender;
+}
+```
+
+
+元件也會用到```x:name=""```
+以方便使用程式碼來控制指定的元件
 ###### RefreshView
 提供可捲動內容的重新整理功能
 ###### SearchBar 
