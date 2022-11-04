@@ -125,9 +125,55 @@ private void OnButtonOnClicked(object sender,EventArgs args)
 
 ```<ActivityIndicator IsRunning="true" />```
 
+##### 集合元件
+用來表示像清單之類的有各種元素集合的元件
+
+###### Picker 清單
+就是MAUI中使用的清單元件
+
+將清單中需要出現的項目加在Picker.Items中，
+使用```x:string```來增加文字項目
+
+由於預設的Picker沒有外框，所以可以在這外面再包一層Border元件來使Picker可以比較清楚的給使用者看見。
+
+Picker有很多互動可以使用，最簡易可以使用```SelectedIndexChanged=""```來指定互動，當使用者選擇不同的項目之後進行觸發
+
+```
+<Border>
+<Picker
+ Title="My List" HorizontalOptions="Center"
+ SelectedIndexChanged="SelectedChanged"
+ >
+	<Picker.Items>
+	<x:String>Item1</x:String>
+	<x:String>Item2</x:String>
+	<x:String>Item3</x:String>
+	</Picker.Items>
+</Picker>
+</Border>
+```
+
+而在程式碼中獲得這個清單
+
+使用```SelectedItem```獲得選擇的這個項目，可以直接toString()來比對想要的項目
+
+或是```SelectedIndex```或的index，可以在清單顯示項目和內部比較值不一樣的情框下使用
+```
+private void SelectedChanged(object sender,EventArgs e)
+{
+	var picker = (Picker)sender;
+    Console.WriteLine(picker.SelectedItem.ToString());
+	Console.WriteLine(picker.SelectedIndex);
+}
+```
+
+
+
 #### ContentView
 自訂的控制項，並且可重複使用，可跳至**動態新增元件**
 觀看如何新增
+
+
 
 ## 動態新增元件
 
