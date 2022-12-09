@@ -92,7 +92,7 @@ private void OnButtonOnClicked(object sender,EventArgs args)
 以方便使用程式碼來控制指定的元件
 ###### RefreshView
 提供可捲動內容的重新整理功能
-###### SearchBar 
+###### SearchBar
 搜尋列
 ###### SwipeView
 撥動手勢顯示內容功能表項目
@@ -106,7 +106,7 @@ private void OnButtonOnClicked(object sender,EventArgs args)
 
 ```<DatePicker />```
 
-###### Slider 
+###### Slider
 滑桿元件
 ###### Stepper
 顯示 **-|+** 選項的元件
@@ -117,6 +117,20 @@ private void OnButtonOnClicked(object sender,EventArgs args)
 切換按鈕
 
 ```<Switch/>```
+
+Switch 元件在 目標平台為Windows時，有時候會一直感覺無法對齊，實際在外面包一層Border後就可以發現，在Windows平台的Switch左邊有一個非常大的預留空白，在此提供不要顯示那些空白的處理方法
+1. 在Switch的外層加一層HorizontalStackLayout
+2. 限制其寬度，我個人是覺得50還不錯，不過你可以自行決定
+
+```
+	<HorizontalStackLayout
+		HorizontalOptions="Center"
+		WidthRequest="50">
+		<Switch VerticalStackLayout="Center">
+	</HorizontalStackLayout>
+```
+
+
 ###### TimePicker
 開啟該平台的時間選擇器，可選取時間
 
@@ -203,7 +217,7 @@ private void SelectedChanged(object sender,EventArgs e)
 		label.BackgroundColor = Colors.AliceBlue;
 		vsl.Children.Add(label);
 	}
-	
+
 
 ```
 
@@ -218,13 +232,13 @@ private void SelectedChanged(object sender,EventArgs e)
              x:Class="MauiApp1.MainPage"
              Loaded="ContentPage_Loaded"
              >
-			 
+
 <AbsoluteLayout>
          <ScrollView AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             <VerticalStackLayout x:Name="vsl"  />
         </ScrollView>    
     </AbsoluteLayout>
-			 
+
 
 ```
 
@@ -233,7 +247,7 @@ private void SelectedChanged(object sender,EventArgs e)
 在Platforms/Android/Resources/values/colors.xml  設定顏色
 
 在Platforms/Android/Resources/MainActivity.cs處理要啟動的圖片
-## Android Emulator 
+## Android Emulator
 
 如果報錯 :Another emulatro is still running
 
@@ -242,7 +256,7 @@ private void SelectedChanged(object sender,EventArgs e)
 CMD-> taskkill /F /IM "qemu-system-x86_64.exe" /T
 
 
-## 發布APK 
+## 發布APK
 
 在方案總管視窗，對方案按右鍵/在終端機中開啟，使用以下命令
 ```
