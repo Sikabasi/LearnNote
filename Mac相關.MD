@@ -28,3 +28,12 @@
 4. 使用
 
 	打開內建的終端機，直接使用像是```brew help```就可以執行相關命令了
+## Visual Studio Code
+
+### PlantUML
+
+1. 預覽圖表時的
+```Warning :the fonts "Times" and "Times" are not available for the Java logical font "Serif"```
+
+	這是因為 Mac上缺少了 Times 字體，所以需要下載
+	+ 註: 當安裝的時候會提示字體重複，不用管他，只要確保裝了後字體簿有出現Times字體即可
