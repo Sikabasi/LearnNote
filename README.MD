@@ -4,5 +4,5 @@
 
 ## 筆記目錄
 
-+ [MAUI 筆記](https://github.com/Sikabasi/LearnNote/blob/main/Mac%E7%9B%B8%E9%97%9C.MD )
++ [MAUI 筆記](https://github.com/Sikabasi/LearnNote/blob/main/MAUI%E5%AD%B8%E7%BF%92.MD )
 + [MAC相關 筆記](https://github.com/Sikabasi/LearnNote/blob/main/Mac%E7%9B%B8%E9%97%9C.MD )
