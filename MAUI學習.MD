@@ -297,3 +297,17 @@ dotnet publish -f:net6.0-android -c:Release
 ```
 
 Environment.SpecialFolder列舉所提供的資料夾位址在官網上的說明:<https://learn.microsoft.com/zh-tw/dotnet/api/system.environment.specialfolder?view=net-6.0>
+
+
+
+#### MAUI 發布Mac
+當要封裝以供發布的話，有出現一個錯誤訊息
+Unable to build chain to self-signed for signer
+打開鑰匙圈會發現你的開發者憑證也許會寫 憑證不受信任
+可以對其點擊右鍵->取得詳細資訊 
+往下到簽發人名稱
+查看他的
++ 一般名稱
++ 組織單位
+
+再去手動下載相關的cer加入到你的鑰匙圈後就可以了
