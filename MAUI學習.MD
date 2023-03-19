@@ -157,6 +157,43 @@ Switch 元件在 目標平台為Windows時，有時候會一直感覺無法對�
 ##### 集合元件
 用來表示像清單之類的有各種元素集合的元件
 
+###### Carouse View
+
+1. 新增 資料夾 ***Views***
+2. 新增 資料夾 ***ViewModels***
+3. 新增 資料夾 ***Models***
+4. 在 Views 下新增 ContentPage 可以取名為 ***XXXView***
+5. 在 ViewModels 下新增 Class 取名為 ***XXXViewModel*** ， Class 範圍 改為 public
+6. 在 Models 下新增 Class 取名為 ***XXXModel*** ， Class 範圍改為 public
+7. ***XXXModle.cs*** 加入一些 public的屬性，像是
+```
+	public string IntroTitle { get; set; }
+	public string IntroDescription { get; set; }
+```
+8. 在 ***XXXViewModel.cs*** 新增 ***XXXModel*** 型別的 **ObservableCollection** 屬性 
+```
+	public ObservableCollection<XXXModel> XXXs { get; set; } =
+            new ();
+```
+9. 在 ***XXXViewModel*** 建構子新增想要添加的模型資料
+```
+	public XXXViewModel()
+        {
+            XXXs.Add(new XXXModel
+            {
+                IntroTitle = "My Title 1",
+                IntroDescription = "First page Description",
+            });
+
+            XXXs.Add(new XXXModel
+            {
+                IntroTitle = "My Title 2",
+                IntroDescription = "Second page Description",
+            });
+        }
+```
+ 
+
 ###### Picker 清單
 就是MAUI中使用的清單元件
 
@@ -195,7 +232,6 @@ private void SelectedChanged(object sender,EventArgs e)
 	Console.WriteLine(picker.SelectedIndex);
 }
 ```
-
 
 
 #### ContentView
