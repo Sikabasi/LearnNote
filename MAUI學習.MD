@@ -380,11 +380,25 @@ Github位置 :<https://github.com/marcojak/MauiMTAdmob>
 5. 應該會長得像以下
    ```
     <application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true">
-  <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
-  <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+  	<!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+  	<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
              android:value="ca-app-pub-3940256099942544~3347511713"/>
-  </application>
+  	</application>
    ```
+##### 程式打開時，廣告的初始化
+1. 需要在CreateApp的時候，對AdMob進行初始化，且各平台的方式會不一樣，所以需要個別平台進行處理
+2. Android
+   1. 點開 Platforms 資料夾 下 Android 的 MainApplication.cs
+   2. 將 CreateMauiApp() 中加入 ```MobileAds.Initialize(this)``` 
+   3. 如果 原本是 使用箭頭函式的方式表達 ，可以依下面範例修改
+   ```
+    protected override MauiApp CreateMauiApp()
+    {
+        MobileAds.Initialize(this);
+        return MauiProgram.CreateMauiApp();
+    }
+   ```
+   
 
 
 #### MAUI 發布Mac
