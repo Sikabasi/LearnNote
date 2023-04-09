@@ -335,6 +335,17 @@ dotnet publish -f:net6.0-android -c:Release
 Environment.SpecialFolder列舉所提供的資料夾位址在官網上的說明:<https://learn.microsoft.com/zh-tw/dotnet/api/system.environment.specialfolder?view=net-6.0>
 
 
+#### MAUI 使用 Google AdMob
+
+這裡我們使用 Nuget Plugin : **Plugin.MauiMTAdmob** 
+Github位置 :<https://github.com/marcojak/MauiMTAdmob>
+
+當我們安裝NugGet的時候，可能會發生 找不到安裝包部分路徑的報錯，這是因為整個Nuget 路徑過長所導致的，一個比較簡單的解決方案是
+1. 使用系統管理員身分打開命令提示字元
+2. 將目前位置移動到 Maui 專案的資料夾位置
+3. 輸入 ```dotnet add package Plugin.MauiMTAdmob --version 1.0.1```
+4. 按下Enter 使用 終端機來進行nuget包的手動安裝
+5. 如果出現 *已將套件'Plugin.MauiMTAdmob' 版本 '1.0.1' 的 PackageReference新增至專案* 就算安裝完成了
 
 #### MAUI 發布Mac
 當要封裝以供發布的話，有出現一個錯誤訊息
