@@ -337,6 +337,8 @@ Environment.SpecialFolder列舉所提供的資料夾位址在官網上的說明:
 
 #### MAUI 使用 Google AdMob
 
+#### 安裝nuget
+
 這裡我們使用 Nuget Plugin : **Plugin.MauiMTAdmob** 
 Github位置 :<https://github.com/marcojak/MauiMTAdmob>
 
@@ -346,6 +348,44 @@ Github位置 :<https://github.com/marcojak/MauiMTAdmob>
 3. 輸入 ```dotnet add package Plugin.MauiMTAdmob --version 1.0.1```
 4. 按下Enter 使用 終端機來進行nuget包的手動安裝
 5. 如果出現 *已將套件'Plugin.MauiMTAdmob' 版本 '1.0.1' 的 PackageReference新增至專案* 就算安裝完成了
+
+#### 出現 UWP 相關 資源找不到的問題
+
+1. 請先下載 上面提供的 Github 庫 ，並把 **"SampleMMTAdmob"** 資料夾下的 **"Dependencies"**資料夾整個複製進專案資料夾下，並確保在Visual Studio 的 方案總管中 有加進 專案裡面
+2. 雙擊 專案名稱打開 .csproj 檔
+3.  在 專案空白處 並 在  <Project> </Project> 之中添加 
+	```
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">      
+    <AndroidLibrary Include="Dependencies\user-messaging-platform-2.0.0.aar" Bind="false" />
+	</ItemGroup>
+	```
+4. 如此一來編譯應該就能成功了
+
+#### 打開程式時發生報錯 *Java.Lang.RuntimeException: 'Unable to get provider com.google.android.gms.ads.MobileAdsInitProvider: java.lang.IllegalStateException:*
+
+這是因為沒有正確與Google admob進行連結
+
+1. 點開 Platforms 資料夾 下 Android 的 AndroidManifest.xml 
+2. 原本的 application 標籤可能長這樣
+   ``` <application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true"/>```
+3. 請將驗證程式ID的屬性加入 <application> 之中 
+   
+   程式碼: 
+   ```
+    <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+  	<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+             android:value="ca-app-pub-################~##########"/>
+   ```
+4. 因為目前只是要離線測試 ，所以使用 GoogleAdmob 所提供的測試用帳號 **ca-app-pub-3940256099942544~3347511713**,到時候如果想用自己的再更換app id即可
+5. 應該會長得像以下
+   ```
+    <application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true">
+  <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+  <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+             android:value="ca-app-pub-3940256099942544~3347511713"/>
+  </application>
+   ```
+
 
 #### MAUI 發布Mac
 當要封裝以供發布的話，有出現一個錯誤訊息
